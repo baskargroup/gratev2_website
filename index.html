@@ -493,28 +493,28 @@
     
     <div class="figures-carousel">
       <div class="figure-slide">
-        <img src="./static/images/1_flowChart.jpg" alt="Framework Overview">
+        <img src="./static/images/fig1_overviewFramework.jpg" alt="Framework Overview">
         <p class="figure-caption">
           <strong>Figure 1:</strong> Illustration of the proposed voxel-based, octree-enabled FEM framework for real-time 3D-printing simulations. Starting from a standard G-code model (left), the part is converted into a voxel representation where each newly deposited voxel (green) expands the active region. An octree mesh (center) then refines or coarsens elements based on print progression, enabling efficient assembly and solution of the evolving thermal problem. Finally, the simulation iterates this deposition-and-solve process until the full 3D object (right) is printed.
         </p>
       </div>
 
       <div class="figure-slide">
-        <img src="./static/images/2_VbV_printing_cube_bunny.jpg" alt="Voxel Printing Order">
+        <img src="./static/images/fig1_BOpt_details.jpg" alt="Voxel Printing Order">
         <p class="figure-caption">
           <strong>Figure 2:</strong> Voxel-by-voxel printing order for the cube and Stanford bunny geometry. The figure shows the 3D printing of the voxel geometry. The red voxels are the ones that have been printed recently, gray voxels are the ones that have been printed previously, and the white voxels are the ones that are yet to be printed. Orange arrow shows the contour print direction and the yellow arrow shows the infill print direction.
         </p>
       </div>
 
       <div class="figure-slide">
-        <img src="./static/images/3_voxel_mesh_slice.jpg" alt="Voxel Mesh Slices">
+        <img src="./static/images/fig3_IP_algo.jpg" alt="Voxel Mesh Slices">
         <p class="figure-caption">
           <strong>Figure 3:</strong> Voxel-based geometry, octree mesh, and 2D slices at three stages of the build for both a cube (left) and the Stanford Bunny (right). From top to bottom, each row represents an increasingly complete print. The left column in each block shows the voxel geometry at the given time, the center column shows the corresponding octree mesh (with inactive elements in wireframe), and the right column presents a mesh slice for clarity. This progression illustrates how the geometric representation, meshing strategy, and cross-sectional patterns evolve as additional layers are deposited.
         </p>
       </div>
 
       <div class="figure-slide">
-        <img src="./static/images/4_voxel_initialization.jpg" alt="Voxel Deposition Process">
+        <img src="./static/images/fig4_intermImgs.jpg" alt="Voxel Deposition Process">
         <p class="figure-caption">
           <strong>Figure 4:</strong> Illustration of the voxel-based deposition process at two consecutive time steps 𝑡 and 𝑡 + 𝛥𝑡. Existing printed voxels (gray) transfer heat through both conduction (orange arrows) and convection (red arrows). At time 𝑡+𝛥𝑡, a newly filled voxel (red) is added, expanding the active region in which heat is solved. The build plate (blue) is held at a prescribed temperature boundary condition. This schematic highlights how voxel activation, heat conduction, and convection boundaries are dynamically updated throughout the printing process.
         </p>
