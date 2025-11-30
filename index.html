@@ -495,28 +495,28 @@
       <div class="figure-slide">
         <img src="./static/images/fig1_overviewFramework.jpg" alt="Framework Overview">
         <p class="figure-caption">
-          <strong>Figure 1:</strong> Illustration of the proposed voxel-based, octree-enabled FEM framework for real-time 3D-printing simulations. Starting from a standard G-code model (left), the part is converted into a voxel representation where each newly deposited voxel (green) expands the active region. An octree mesh (center) then refines or coarsens elements based on print progression, enabling efficient assembly and solution of the evolving thermal problem. Finally, the simulation iterates this deposition-and-solve process until the full 3D object (right) is printed.
+          <strong>Figure 1:</strong> Schematic overview of the GRATEv2 computational framework. The overall computational framework of GRATEv2.
         </p>
       </div>
 
       <div class="figure-slide">
-        <img src="./static/images/fig1_BOpt_details.jpg" alt="Voxel Printing Order">
+        <img src="./static/images/fig1_BOpt_details.jpg" alt="Bayesian Optimization Details">
         <p class="figure-caption">
-          <strong>Figure 2:</strong> Voxel-by-voxel printing order for the cube and Stanford bunny geometry. The figure shows the 3D printing of the voxel geometry. The red voxels are the ones that have been printed recently, gray voxels are the ones that have been printed previously, and the white voxels are the ones that are yet to be printed. Orange arrow shows the contour print direction and the yellow arrow shows the infill print direction.
+          <strong>Figure 2:</strong> The detailed Bayesian Optimization (BO) component used for parameter tuning. The BO framework iteratively suggests parameter sets based on previous evaluations, optimizing the performance of the GRATEv2 image analysis pipeline. This process minimizes manual intervention and enhances the robustness of the analysis across diverse datasets.
         </p>
       </div>
 
       <div class="figure-slide">
-        <img src="./static/images/fig3_IP_algo.jpg" alt="Voxel Mesh Slices">
+        <img src="./static/images/fig3_IP_algo.jpg" alt="Algorithm Flowchart with Parameters">
         <p class="figure-caption">
-          <strong>Figure 3:</strong> Voxel-based geometry, octree mesh, and 2D slices at three stages of the build for both a cube (left) and the Stanford Bunny (right). From top to bottom, each row represents an increasingly complete print. The left column in each block shows the voxel geometry at the given time, the center column shows the corresponding octree mesh (with inactive elements in wireframe), and the right column presents a mesh slice for clarity. This progression illustrates how the geometric representation, meshing strategy, and cross-sectional patterns evolve as additional layers are deposited.
+          <strong>Figure 3:</strong> Algorithm flowchart with parameters. Blue boxes are the process parameters and brown boxes are the intermediate steps shown in the next figure.
         </p>
       </div>
 
       <div class="figure-slide">
-        <img src="./static/images/fig4_intermImgs.jpg" alt="Voxel Deposition Process">
+        <img src="./static/images/fig4_intermImgs.jpg" alt="Intermediate and Final Outputs">
         <p class="figure-caption">
-          <strong>Figure 4:</strong> Illustration of the voxel-based deposition process at two consecutive time steps 𝑡 and 𝑡 + 𝛥𝑡. Existing printed voxels (gray) transfer heat through both conduction (orange arrows) and convection (red arrows). At time 𝑡+𝛥𝑡, a newly filled voxel (red) is added, expanding the active region in which heat is solved. The build plate (blue) is held at a prescribed temperature boundary condition. This schematic highlights how voxel activation, heat conduction, and convection boundaries are dynamically updated throughout the printing process.
+          <strong>Figure 4:</strong> Intermediate and final outputs of the pipeline (see the flowchart in previous figure). (a) Input: initial morphology. (b) Step 1 —Otsu thresholding (corresponds to orange callout 1 in previous figure). (c) Step 2 — skeletonization and branching (callout 2). (d) Step 3 —filtering short backbones and division into uniform bones (callout 3). (e) Step 4 — aspect-ratio filtering of ellipses (callout 4). (f) Step 5 — clustering of adjacent bones (callout 5). (g) Output: detected crystal region with boundary/principal-direction overlay.
         </p>
       </div>
 
@@ -542,23 +542,23 @@
     
     <div class="results-carousel">
       <div class="result-slide">
-        <img src="./static/images/fig9_results.jpg" alt="Experimental Comparison">
+        <img src="./static/images/fig9_results.jpg" alt="Comparison of Detection Methods">
         <p class="figure-caption">
-          <strong>Figure 5:</strong> (a) Temperature vs. time for ABS: our three voxel resolutions (5 mm, 3 mm, 2.5 mm) versus the experiment and simulation curves from lepoivre2020heat and nagaraj2023novel. (b) Temperature vs. time for PEKK under the same conditions. (c) Single filament wall geometry (60 mm × 51.2 mm). The thickness is 1.25 mm for ABS and 2.2 mm for PEKK; the red dot marks the temperature probe location at (30 mm, 0 mm, 4.4 mm).
+          <strong>Figure 5:</strong> Comparison of Ground Truth, Manually selected parameter detection, and Bayesian-Optimized parameter detection across three different images. Each column represents a distinct detection method, illustrating how Bayesian optimization enhances segmentation accuracy by more closely matching the ground truth annotations compared to manual parameter tuning. The Bayesian optimization process was conducted over 200 iterations, achieving a minimum loss value of -0.7319 at the 151st evaluation. 
         </p>
       </div>
 
       <div class="result-slide">
-        <img src="./static/images/fig12_featurePlots.jpg" alt="Stanford Bunny Simulation">
+        <img src="./static/images/fig12_featurePlots.jpg" alt="Individual Crystal Analysis">
         <p class="figure-caption">
-          <strong>Figure 6:</strong> Stanford Bunny at three voxel resolutions (32, 64, 128) and at three build completion times (30%, 60%, 100%).
+          <strong>Figure 6:</strong> Individual crystal analysis. The properties of the individually detected crystals are plotted: (a) Crystal area, (b) FFT evaluated d-spacing, (c) Angle difference between crystal's pattern and its major axis, (d) Crystal aspect ratio, and (e) crystal axis lengths. (a) to (d) are histograms with kernel density estimate, and (e) is a scatter plot from analysis of the entire dataset. 
         </p>
       </div>
 
       <div class="result-slide">
-        <img src="./static/images/fig14_dataSuff.jpg" alt="Benchy Simulation">
+        <img src="./static/images/fig14_dataSuff.jpg" alt="Data Sufficiency Analysis">
         <p class="figure-caption">
-          <strong>Figure 7:</strong> Benchy at three voxel resolutions (32, 64, 128) and at three build completion times (30%, 60%, 100%). 
+          <strong>Figure 7:</strong> Data sufficiency for the crystal-area feature. (a-d) Empirical area distributions (histogram + KDE) at cumulative sampling levels of 20% (168 crystals), 40% (336), 60% (504), and 100% (837). (e) Average first-order Wasserstein distance between successive cumulative batches of crystal areas versus crystal count; curves indicate batch sizes: 84 (blue), 42 (red), 21 (green), and 10 (orange). Lower values indicate distributional convergence. 
         </p>
       </div>
 
