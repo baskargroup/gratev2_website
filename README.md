@@ -1,37 +1,40 @@
-# High-Resolution Thermal Simulation Framework for Extrusion-based Additive Manufacturing
+# GRATEv2: Computational Tools for Real-time Analysis of High-throughput High-resolution TEM (HRTEM) Images of Conjugated Polymers
 
-This is the repository that contains source code for the [project website](https://idealab-isu.github.io/hires-thermal-sim/).
+This is the repository that contains source code for the project website.
 
 ## Abstract
 
-Accurate simulation of the printing process is essential for improving print quality, reducing waste, and optimizing the printing parameters of extrusion-based additive manufacturing. Traditional additive manufacturing simulations are very compute-intensive and are not scalable to simulate even moderately sized geometries. In this paper, we propose a general framework for creating a digital twin of the dynamic printing process by performing physics simulations with the intermediate print geometries.
+Automated analysis of high-resolution transmission electron microscopy (HRTEM) images is increasingly essential for advancing research in organic electronics, where precise characterization of lamellar, one-dimensional crystalline domains in conjugated polymers governs device performance. This paper introduces an open-source computational framework—GRATEv2 (GRaph-based Analysis of TEM, Version 2)—designed for near-real-time analysis of semi-crystalline, polymeric microstructures; its capabilities are illustrated on poly[N-9′-heptadecanyl-2,7-carbazole-alt-5,5-(4′,7′-di-2-thienyl-2′,1′,3′-benzothiadiazole)] (PCDTBT), a benchmark material in organic photovoltaics. GRATEv2 employs fast, automated image processing algorithms, enabling rapid extraction of structural features like d-spacing, orientation, and crystal shape metrics. Bayesian optimization rapidly identifies the parameters (that are traditionally user-defined) in the approach, reducing the need for manual parameter tuning and thus enhancing reproducibility and usability. Additionally, GRATEv2 is compatible with high-performance computing (HPC) environments, allowing for efficient, large-scale data processing at near real-time speeds. A unique feature of GRATEv2 is a Wasserstein distance-based stopping criterion, which optimizes data collection by determining when further sampling no longer adds statistically significant information. This capability optimizes the amount of time the TEM facility is used while ensuring data adequacy for in-depth analysis. Open-source and tested on a substantial PCDTBT dataset, this tool offers a powerful, robust, and accessible solution for high-throughput material characterization in organic electronics.
 
 ## Key Features
 
-- **High-resolution thermal simulation** of 3D printing processes
-- **Voxel-based geometry representation** from G-code
-- **Adaptive octree meshes** for efficient computation
-- **Real-time predictions** faster than actual print time
-- **Scalable to complex geometries** with sparse and dense infills
+- **Automated HRTEM image analysis** for conjugated polymers
+- **Bayesian optimization** for parameter tuning
+- **Real-time structural feature extraction** (d-spacing, orientation, crystal shape)
+- **HPC compatibility** for large-scale data processing
+- **Wasserstein distance-based stopping criterion** for optimal data collection
+- **Open-source framework** for reproducible research
 
 ## Links
 
-- [Paper (Finite Elements in Analysis and Design)](https://www.sciencedirect.com/science/article/pii/S0168874X2500099X?dgcid=author)
-- [arXiv Preprint](https://arxiv.org/abs/2305.07120)
+- [Paper (Materials Advances)](https://pubs.rsc.org/en/content/articlehtml/2025/ma/d5ma00409h)
+- [arXiv Preprint](https://arxiv.org/abs/2411.03474)
+- [Code Repository](https://github.com/baskargroup/GRATEv2)
 
 ## Citation
 
 If you find this work useful for your research, please cite:
 
 ```bibtex
-@article{gamdha2025high,
-  author    = {Gamdha, Dhruv and Saurabh, Kumar and Ganapathysubramanian, Baskar and Krishnamurthy, Adarsh},
-  title     = {High-resolution thermal simulation framework for extrusion-based additive manufacturing of complex geometries},
-  journal   = {Finite Elements in Analysis and Design},
-  year      = {2025},
-  volume    = {251},
-  pages     = {104410},
-  publisher = {Elsevier}
+@article{gamdha2025gratev2,
+  title={GRATEv2: computational tools for real-time analysis of high-throughput high-resolution TEM (HRTEM) images of conjugated polymers},
+  author={Gamdha, Dhruv and Fair, Ryan and Krishnamurthy, Adarsh and Gomez, Enrique D and Ganapathysubramanian, Baskar},
+  journal={Materials Advances},
+  volume={6},
+  number={19},
+  pages={6820--6842},
+  year={2025},
+  publisher={Royal Society of Chemistry}
 }
 ```
 
